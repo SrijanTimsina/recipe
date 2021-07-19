@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <script
+      src="https://kit.fontawesome.com/8e52001b4f.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Recipe All</title>
+    <link rel="shortcut icon" href="./img/favicon.png" />
+  </head>
+  <body>
+    <div id="container">
+      <nav id="navbar">
+        <div class="left">
+          <a href="./index.html" id="refresh"><h2 id="logo">Recipe All</h2></a>
+          <input
+            type="text"
+            id="search-bar"
+            placeholder="SEARCH OVER 100,000 RECIPES"
+          />
+          <div class="search-right">
+            <i id="icon-search" class="fas fa-spinner icon"></i>
+            <button id="search-button">
+              <span> search</span>
+            </button>
+          </div>
+        </div>
+        <div class="right">
+          <div id="bookmark-button">
+          <button id="bookmarks"><i class="far b-icon fa-2x fa-bookmark"></i>bookmarks</button></div>
+          <div id="button-list">
+          <ul id="bookmark-list">
+            <p id="empty"></p>
+          </ul>
+        </div>
+        </div>
+      </nav>
+
+      <section id="main">
+        <div id="left">
+          <ul id="recipe-list"></ul>
+          <div id="buttons"></div>
+        </div>
+        <div id="right">
+          <i id="icon-recipe" class="fas fa-spinner fa-2x icon"></i>
+          <div id="recipe-all">
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="./js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,384 @@
+@import "variables";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: $linear-gradient;
+  color: $t-col;
+}
+a {
+  text-decoration: none;
+  cursor: default;
+  color: inherit;
+}
+#container {
+  margin: 50px 80px;
+  background-color: $p-col;
+  border-radius: 10px;
+
+  #logo {
+    color: $s-col;
+    margin-left: 20px;
+    margin-right: 30px;
+  }
+
+  #navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    padding: 0px 20px;
+
+    .left {
+      display: flex;
+      align-items: center;
+      position: relative;
+      margin: 10px 0;
+
+      img {
+        height: 70px;
+        padding: 10px 30px;
+      }
+      input {
+        height: 50px;
+        width: 500px;
+        margin-left: 50px;
+        border-radius: 160px;
+        border: none;
+        outline: none;
+        padding-left: 20px;
+        letter-spacing: 1px;
+
+        &:focus {
+          box-shadow: 0 2px 5px 2px rgba(68, 68, 68, 0.1);
+          transition: all 200ms;
+        }
+      }
+      .search-right {
+        position: absolute;
+        right: 0;
+        display: flex;
+        align-items: center;
+
+        button {
+          height: 50px;
+          width: 175px;
+          border-radius: 160px;
+          background-image: $linear-gradient;
+          border: none;
+          text-transform: uppercase;
+          color: white;
+          font-size: 17px;
+          cursor: pointer;
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+
+          &:hover {
+            transform: scale(1.03);
+            transition: all 300ms;
+          }
+        }
+      }
+    }
+    .right {
+      position: relative;
+      flex-direction: column;
+
+      &:hover #bookmark-list {
+        display: block;
+      }
+
+      #bookmarks {
+        height: 90px;
+        padding: 0 10px 0 30px;
+        background: transparent;
+        border: none;
+        text-transform: uppercase;
+        cursor: pointer;
+
+        .b-icon {
+          color: $s-col;
+          margin-right: 15px;
+          transform: translateY(5px);
+        }
+        &:hover {
+          background-color: rgba(204, 204, 204, 0.1);
+          transition: all 300ms;
+        }
+      }
+      #bookmark-list {
+        list-style: none;
+        position: absolute;
+        right: 0;
+        width: 400px;
+        transform: translateX(20px);
+        background-color: white;
+        display: none;
+        z-index: 100;
+      }
+      .bookmarks-link {
+        display: flex;
+        padding: 15px 0px 15px 10px;
+        text-transform: uppercase;
+        font-size: 13px;
+        cursor: pointer;
+        margin-right: 5px;
+        background: transparent;
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid rgba(68, 68, 68, 0.1);
+        text-align: left;
+        img {
+          height: 58px;
+          width: 58px;
+          margin-right: 20px;
+          border-radius: 50%;
+        }
+        .title {
+          font-size: 16px;
+          font-weight: 300;
+          margin-bottom: 7px;
+          color: $s-col;
+          text-overflow: ellipsis;
+          max-width: 150px;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+        .publisher {
+          text-overflow: ellipsis;
+          max-width: 150px;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+
+        &:hover {
+          background-color: $p-col;
+          transform: translateY(-2px);
+          transition: transform 300ms ease-in;
+        }
+      }
+    }
+  }
+
+  .icon {
+    display: none;
+    font-weight: bolder;
+    font-size: 30px;
+    margin-right: 10px;
+    animation: spin 3s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  #main {
+    display: flex;
+
+    #left {
+      flex: 1;
+      background: white;
+      position: relative;
+      min-height: 1000px;
+      ul {
+        margin: 20px 0;
+        list-style: none;
+      }
+      .results-link {
+        display: flex;
+        padding: 15px 0px 15px 30px;
+        text-transform: uppercase;
+        font-size: 13px;
+        cursor: pointer;
+        margin-right: 5px;
+        background: transparent;
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid rgba(68, 68, 68, 0.1);
+        text-align: left;
+        img {
+          height: 58px;
+          width: 58px;
+          margin-right: 30px;
+          border-radius: 50%;
+        }
+        .title {
+          font-size: 16px;
+          font-weight: 300;
+          margin-bottom: 7px;
+          color: $s-col;
+          text-overflow: ellipsis;
+          max-width: 250px;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+
+        &:hover {
+          background-color: $p-col;
+          transform: translateY(-2px);
+          transition: transform 300ms ease-in;
+        }
+      }
+      #buttons {
+        width: 100%;
+        position: absolute;
+        bottom: 50px;
+
+        button {
+          background-image: $linear-gradient;
+          border: none;
+          border-radius: 10px;
+          width: 100px;
+          color: white;
+          cursor: pointer;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 8px 20px;
+
+          &:hover {
+            transform: scale(1.03);
+            transition: all 300ms;
+          }
+        }
+        .page-prev {
+          position: absolute;
+          left: 30px;
+        }
+        .page-next {
+          position: absolute;
+          right: 30px;
+          flex-direction: row-reverse;
+        }
+      }
+    }
+    #right {
+      background: inherit;
+      flex: 2;
+      position: relative;
+
+      #icon-recipe {
+        position: absolute;
+        top: 30px;
+        font-size: 50px;
+        left: 50%;
+      }
+      #recipe-intro {
+        height: 300px;
+        .image {
+          opacity: 0.5;
+        }
+        img {
+          width: 100%;
+          height: 300px;
+          opacity: 0.8;
+          position: absolute;
+          object-fit: cover;
+          top: 0;
+          left: 0;
+        }
+        #title {
+          color: white;
+          z-index: 2;
+          position: absolute;
+          bottom: 700px;
+          left: 50%;
+          transform: translate(-50%, -20%) skew(-6deg) rotate(-7deg);
+          text-transform: uppercase;
+          font-size: 26px;
+          text-align: center;
+          background-image: $linear-gradient;
+          padding: 15px 25px;
+          line-height: 40px;
+        }
+      }
+
+      .bookmark {
+        color: white;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        padding: 10px 18px;
+        border-radius: 50%;
+        background-image: $linear-gradient;
+        font-size: 26px;
+        border: none;
+        box-shadow: 0 2px 5px 2px rgba(68, 68, 68, 0.2);
+        cursor: pointer;
+
+        &:hover {
+          transform: scale(1.03);
+          transition: all 30ms;
+        }
+      }
+
+      #recipe-ingredients {
+        background: rgba(204, 204, 204, 0.3);
+        height: 500px;
+        overflow-y: auto;
+        h1 {
+          color: $s-col;
+          text-align: center;
+          padding-top: 40px;
+          text-transform: uppercase;
+          font-weight: lighter;
+        }
+        #ingredients-list {
+          list-style: none;
+          padding: 30px 100px;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+
+          li {
+            font-size: 20px;
+            margin-bottom: 16px;
+
+            .tick {
+              font-weight: lighter;
+              margin-right: 10px;
+              color: $s-col;
+            }
+          }
+        }
+      }
+      #external-link {
+        text-align: center;
+        h1 {
+          color: $s-col;
+          font-weight: lighter;
+          text-transform: uppercase;
+          padding: 20px;
+        }
+        p {
+          font-size: 18px;
+          margin-bottom: 30px;
+        }
+        #goto-external {
+          text-align: center;
+          a {
+            padding: 8px 18px 12px;
+            background-image: $linear-gradient;
+            color: white;
+            border-radius: 160px;
+            font-size: 20px;
+            cursor: pointer;
+          }
+          &:hover {
+            transform: scale(1.03);
+            transition: all 300ms;
+          }
+        }
+      }
+    }
+  }
+}
