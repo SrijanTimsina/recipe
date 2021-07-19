@@ -1,12 +1,11 @@
-let likes = JSON.parse(localStorage.getItem("allBookmark"));
+let likes = JSON.parse(localStorage.getItem("allBookmarks"));
 
-window.addEventListener("load", () => {
-	if (likes !== null) {
-		displayBookmark(likes);
-	} else if (likes === null) {
-		likes = [];
-	}
-});
+
+if (likes !== null) {
+	displayBookmark(likes);
+} else if (likes === null) {
+	likes = [];
+}
 
 class Search {
 	constructor(query) {
@@ -198,7 +197,7 @@ function bookmark(id) {
 		document.getElementById(id).innerHTML = `<i class="fas fa-bookmark"></i>`;
 		displayBookmark(likes);
 	}
-	localStorage.setItem("allBookmark", JSON.stringify(likes));
+	localStorage.setItem("allBookmarks", JSON.stringify(likes));
 }
 
 function displayBookmark(likes) {
