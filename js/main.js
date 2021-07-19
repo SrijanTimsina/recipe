@@ -117,7 +117,6 @@ class Recipe {
 				`https://forkify-api.herokuapp.com/api/get?rId=${this.id}`
 			);
 			const res = await output.json();
-			console.log(res);
 			this.title = res.recipe.title;
 			this.publisher = res.recipe.publisher;
 			this.image = res.recipe.image_url;
